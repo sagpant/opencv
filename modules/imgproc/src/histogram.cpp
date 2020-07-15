@@ -2468,7 +2468,7 @@ cvThreshHist( CvHistogram* hist, double thresh )
 
     if( !CV_IS_SPARSE_MAT(hist->bins) )
     {
-        CvMat mat;
+        CvMat mat = {};
         cvGetMat( hist->bins, &mat, 0, 1 );
         cvThreshold( &mat, &mat, thresh, 0, CV_THRESH_TOZERO );
     }
@@ -2500,7 +2500,7 @@ cvNormalizeHist( CvHistogram* hist, double factor )
 
     if( !CV_IS_SPARSE_HIST(hist) )
     {
-        CvMat mat;
+        CvMat mat = {};
         cvGetMat( hist->bins, &mat, 0, 1 );
         sum = cvSum( &mat ).val[0];
         if( fabs(sum) < DBL_EPSILON )
@@ -2549,7 +2549,7 @@ cvGetMinMaxHistValue( const CvHistogram* hist,
 
     if( !CV_IS_SPARSE_HIST(hist) )
     {
-        CvMat mat;
+        CvMat mat = {};
         CvPoint minPt = {0, 0}, maxPt = {0, 0};
 
         cvGetMat( hist->bins, &mat, 0, 1 );
