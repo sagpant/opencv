@@ -840,7 +840,7 @@ static int HistogramCombineGreedy(VP8LHistogramSet* const image_histo,
   int i, j;
   VP8LHistogram** const histograms = image_histo->histograms;
   // Priority queue of histogram pairs.
-  HistoQueue histo_queue;
+  HistoQueue histo_queue = {};
 
   // image_histo_size^2 for the queue size is safe. If you look at
   // HistogramCombineGreedy, and imagine that UpdateQueueFront always pushes
