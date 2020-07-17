@@ -3145,7 +3145,7 @@ HRESULT videoInput::ShowFilterPropertyPages(IBaseFilter *pFilter){
         // Get the filter's name and IUnknown pointer.
         FILTER_INFO FilterInfo;
         hr = pFilter->QueryFilterInfo(&FilterInfo);
-        IUnknown *pFilterUnk;
+        IUnknown *pFilterUnk = nullptr;
         pFilter->QueryInterface(IID_IUnknown, (void **)&pFilterUnk);
 
         // Show the page.
